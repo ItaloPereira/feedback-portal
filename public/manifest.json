@@ -1,6 +1,6 @@
 {
-  "short_name": "Navedex",
-  "name": "Navedex",
+  "short_name": "FeedbackPortal",
+  "name": "FeedbackPortal",
   "icons": [
     {
       "src": "/static/img/favicon/favicon.ico",

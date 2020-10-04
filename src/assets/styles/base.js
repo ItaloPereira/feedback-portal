@@ -4,7 +4,7 @@ import { Primary } from './colors';
 
 const Base = createGlobalStyle`
   body {
-    ${Paragraph}
+    ${Paragraph};
     color: ${Primary};
   }
 `;

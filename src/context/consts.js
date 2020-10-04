@@ -1,0 +1,2 @@
+export const SET_MODAL_OPENED = 'SET_MODAL_OPENED';
+export const SET_MODAL_CLOSED = 'SET_MODAL_CLOSED';

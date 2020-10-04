@@ -1,7 +1,4 @@
 import axios from 'axios';
-import cookie from 'js-cookie';
-
-const tokenName = `${process.env.REACT_APP_PROJECT_NAME}-token`;
 
 class API {
   constructor(base = process.env.REACT_APP_API_BASE_URL) {
@@ -22,20 +19,11 @@ class API {
       method,
     };
     
-    const token = config.token || cookie.get(tokenName);
-    options.headers.Authorization = token ? `Bearer ${token}` : '';
-
     try {
       return await this.service(options);
     } catch(error) {
       // eslint-disable-next-line no-console
       console.error(error.status, error.statusText);
-
-      if (error.status === 401) {
-        cookie.remove(tokenName);
-        window.location.reload();
-      };
-      
       throw error;
     }
   }

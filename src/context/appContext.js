@@ -1,38 +1,22 @@
 import React, { useReducer, createContext } from 'react';
 import PropTypes from 'prop-types';
 
+import { SET_MODAL_OPENED, SET_MODAL_CLOSED } from './consts';
+
 const initialState = {
-  navers: [],
   modal: {
     isOpened: false,
     component: null,
   },
-  rareNaverFound: false,
 };
 
 const reducer = (state = initialState, action) => {
   const { type, payload } = action;
 
+  console.log(payload);
+
   switch (type) {
-    case 'SET_NAVERS':
-      return {
-        ...state,
-        navers: payload,
-      };
-
-    case 'ADD_NAVER':
-      return {
-        ...state,
-        navers: [ payload, ...state.navers ],
-      };
-
-    case 'REMOVE_NAVER':
-      return {
-        ...state,
-        navers: state.navers.filter(naver => naver.id !== action.uid)
-      }
-
-    case 'SET_MODAL_OPENED':
+    case SET_MODAL_OPENED:
       return {
         ...state,
         modal: {
@@ -42,19 +26,13 @@ const reducer = (state = initialState, action) => {
         },
       };
 
-    case 'SET_MODAL_CLOSED':
+    case SET_MODAL_CLOSED:
       return {
         ...state,
         modal: {
           ...state.modal,
           isOpened: false,
         },
-      };
-
-    case 'SET_RARE_NAVER_FOUND':
-      return {
-        ...state,
-        rareNaverFound: true,
       };
 
     default:
