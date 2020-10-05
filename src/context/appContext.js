@@ -1,9 +1,10 @@
 import React, { useReducer, createContext } from 'react';
 import PropTypes from 'prop-types';
 
-import { SET_MODAL_OPENED, SET_MODAL_CLOSED } from './consts';
+import { SET_MODAL_OPENED, SET_MODAL_CLOSED, SET_COLLABORATORS } from './consts';
 
 const initialState = {
+  collaborators: [],
   modal: {
     isOpened: false,
     component: null,
@@ -12,8 +13,6 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   const { type, payload } = action;
-
-  console.log(payload);
 
   switch (type) {
     case SET_MODAL_OPENED:
@@ -34,6 +33,12 @@ const reducer = (state = initialState, action) => {
           isOpened: false,
         },
       };
+
+    case SET_COLLABORATORS:
+      return {
+        ...state,
+        collaborators: payload
+      }
 
     default:
       return state;

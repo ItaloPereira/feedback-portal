@@ -1,15 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// import { Image } from './style';
-
-// const logoSrc = '/static/img/logo/logo.svg';
+import { Text } from './style';
 
 const Logo = () => {
   return (
     <Link to="/">
-      {/* <Image width="100%" src={logoSrc} alt="Logo" /> */}
-      Feedback Portal
+      <Text>
+        Feedback Portal
+      </Text>
     </Link>
   );
 };

@@ -1,13 +1,13 @@
 import React from 'react'; 
 import Logo from '@components/atoms/Logo';
-import { Viewport, LogoWrapper } from './style';
+import { Viewport, NavWrapper } from './style';
 
 const NavBar = () => {
   return (
     <Viewport>
-      <LogoWrapper>
+      <NavWrapper>
         <Logo />
-      </LogoWrapper>
+      </NavWrapper>
     </Viewport>
   );
 };

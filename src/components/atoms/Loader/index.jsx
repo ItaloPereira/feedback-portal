@@ -6,11 +6,11 @@ import Viewport from './style';
 
 const colors = {
   primary: {
-    bg: 'rgba(0, 0, 0, 0.2)',
+    bg: 'rgba(0, 0, 0)',
     fg: White,
   },
   secondary: {
-    bg: 'rgba(255, 255, 255, 0.3)',
+    bg: 'rgba(255, 255, 255)',
     fg: White,
   },
 };
