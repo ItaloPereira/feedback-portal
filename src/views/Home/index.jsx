@@ -9,7 +9,7 @@ import { SET_COLLABORATORS } from '@context/consts';
 
 import Loader from '@components/atoms/Loader';
 import Page from '@components/templates/Page';
-import Row from '@components/molecules/Row';
+import List from '@components/organisms/List';
 
 import {
   PageWrapper,
@@ -55,12 +55,7 @@ const Home = () => {
           </LoaderWrapper>
         ) : (
           <CollaboratorsWrapper>
-            <Row
-              imageSrc={state.collaborators.length && state.collaborators[0].avatar}
-              name={state.collaborators.length && state.collaborators[0].name}
-              role={state.collaborators.length && state.collaborators[0].role}
-              company={state.collaborators.length && state.collaborators[0].company}
-            />
+            <List items={state.collaborators} />
           </CollaboratorsWrapper>
         )}
       </PageWrapper>

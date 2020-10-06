@@ -6,8 +6,16 @@ import { Primary } from '@assets/styles/colors';
 export const Container = styled.div`
   padding: 10px 16px;
   box-shadow: 0 4px 8px 0 ${lighten(0.75, Primary)};
+  border: 1px solid ${lighten(0.75, Primary)};
   display: flex;
   align-items: center;
+  margin-bottom: 8px;
+  transition: .25s;
+
+  &:hover {
+    background: ${lighten(0.8, Primary)};
+    box-shadow: 0 2px 4px 0 ${lighten(0.75, Primary)};
+  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -16,6 +24,7 @@ export const ContentWrapper = styled.div`
 
 export const Title = styled.h3`
   ${LabelLarge};
+  color: ${Primary};
 `;
 
 export const Text = styled.span`

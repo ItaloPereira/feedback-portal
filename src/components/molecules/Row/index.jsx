@@ -1,5 +1,6 @@
 import React from 'react'; 
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import Avatar from '@components/atoms/Avatar';
 
@@ -11,19 +12,21 @@ import {
   Strong,
 } from './style';
 
-const Row = ({ imageSrc, name, role, company }) => {
+const Row = ({ imageSrc, name, role, company, id }) => {
   return (
-    <Container>
-      <Avatar imageSrc={imageSrc} />
-      <ContentWrapper>
-        <Title>{name}</Title>
-        <Text>
-          <Strong>{role}</Strong> 
-          {' at '}
-          <Strong>{company}</Strong>
-        </Text>
-      </ContentWrapper>
-    </Container>
+    <Link to={`/detail/${id}`}>
+      <Container>
+        <Avatar imageSrc={imageSrc} />
+        <ContentWrapper>
+          <Title>{name}</Title>
+          <Text>
+            <Strong>{role}</Strong> 
+            {' at '}
+            <Strong>{company}</Strong>
+          </Text>
+        </ContentWrapper>
+      </Container>
+    </Link>
   );
 };
 
@@ -32,6 +35,7 @@ Row.propTypes = {
   name: PropTypes.string.isRequired,
   role: PropTypes.string.isRequired,
   company: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 Row.defaultProps = {

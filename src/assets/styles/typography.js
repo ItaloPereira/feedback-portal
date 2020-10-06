@@ -34,3 +34,10 @@ export const HeadingMedium = `
   font-size: 32px;
   line-height: 40px
 `;
+
+export const HeadingLarge = `
+  ${fontFamily};
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 46px
+`;
