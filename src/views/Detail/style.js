@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { lighten } from 'polished';
-import { HeadingLarge, LabelLarge } from '@assets/styles/typography';
+import { HeadingLarge, LabelLarge, ParagraphStrong } from '@assets/styles/typography';
 import { Primary } from '@assets/styles/colors';
 
 export const PageWrapper = styled.div`
@@ -42,4 +42,31 @@ export const Strong = styled.span`
   ${LabelLarge};
   color: ${Primary};
   text-align: center;
+`;
+
+export const ActionsContainer = styled.div`
+  margin-bottom: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const BackWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  .icon-wrapper {
+    transform: translateY(0px);
+  }
+`;
+
+export const BackText = styled.span`
+  ${ParagraphStrong};
+  display: block;
+  margin-left: 8px;
+`;
+
+export const ButtonWrapper = styled.div`
+  width: 200px;
 `;

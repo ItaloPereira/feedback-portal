@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { toast } from 'react-toastify';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
 import CollaboratorsService from '@api/services/collaborator';
 import { getErrorMessageByRequest } from '@modules/errors';
+import AppContext from '@context/appContext';
+import { SET_MODAL_OPENED } from '@context/consts';
 
 import Loader from '@components/atoms/Loader';
 import Avatar from '@components/atoms/Avatar';
+import Button from '@components/molecules/Button';
 import FeedbackList from '@components/templates/FeedbackList';
+import NewFeedbackModal from '@components/templates/Modals/NewFeedback';
 import Page from '@components/templates/Page';
 
 import {
@@ -18,15 +22,25 @@ import {
   Name,
   Text,
   Strong,
+  ActionsContainer,
+  BackWrapper,
+  BackText,
+  ButtonWrapper,
 } from './style';
 
 const Detail = () => {
+  const { dispatch } = useContext(AppContext);
   const notifyError = (msg) => toast.error(msg);
   const [infoLoading, setInfoLoading] = useState(false);
   const [feedbacksLoading, setFeedbacksLoading] = useState(false);
   const [collaborator, setCollaborator] = useState({});
   const [feedbacks, setFeedbacks] = useState([]);
   const { id } = useParams();
+  const history = useHistory();
+
+  function handleNewFeedback() {
+    dispatch({ type: SET_MODAL_OPENED, component: NewFeedbackModal })
+  }
 
   async function getCollaborator() {
     setInfoLoading(true);
@@ -82,6 +96,15 @@ const Detail = () => {
           </LoaderWrapper>
         ) : (
           <>
+            <ActionsContainer>
+              <BackWrapper onClick={() => history.push('/')} aria-hidden="true">
+                <Button type="ghost" icon="arrow-left" shape="circle" />
+                <BackText>Back</BackText>
+              </BackWrapper>
+              <ButtonWrapper>
+                <Button onClick={handleNewFeedback}>New Feedback</Button>
+              </ButtonWrapper>
+            </ActionsContainer>
             <ProfileWrapper>
               <AvatarWrapper>
                 <Avatar imageSrc={collaborator.avatar} size="big" />

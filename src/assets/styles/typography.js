@@ -7,6 +7,13 @@ export const Paragraph = `
   line-height: 24px
 `;
 
+export const ParagraphStrong = `
+  ${fontFamily};
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px
+`;
+
 export const ParagraphSmall = `
   ${fontFamily};
   font-weight: 400;
