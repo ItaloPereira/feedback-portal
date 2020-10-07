@@ -13,6 +13,10 @@ const colors = {
     bg: 'rgba(255, 255, 255)',
     fg: White,
   },
+  ghost: {
+    bg: 'rgba(0, 0, 0)',
+    fg: White,
+  },
 };
 
 const Loader = ({ size, colorSchema }) => (
@@ -45,7 +49,7 @@ const Loader = ({ size, colorSchema }) => (
 
 Loader.propTypes = {
   size: PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge']),
-  colorSchema: PropTypes.oneOf(['primary', 'secondary']),
+  colorSchema: PropTypes.oneOf(['primary', 'secondary', 'ghost']),
 };
 
 Loader.defaultProps = {

@@ -7,23 +7,37 @@ const colorSchemas = {
   primary: {
     background: Primary,
     hoverBackground: lighten(0.1, Primary),
+    borderColor: Primary,
     color: White,
   },
   secondary: {
     background: White,
     hoverBackground: darken(0.05, White),
+    borderColor: Primary,
+    color: Primary,
+  },
+  ghost: {
+    background: 'transparent',
+    hoverBackground: lighten(0.8, Primary),
+    borderColor: 'transparent',
     color: Primary,
   }
 };
 
+const shapes = {
+  none: '0',
+  circle: '50%',
+}
+
 export const StyledButton = styled.button`
-  width: 100%;
+  width: ${props => props.shape === 'none' ? '100%' : '42px'};%;
   display: flex;
   align-items: center;
   justify-content: center;
   background: ${props => colorSchemas[props.colorSchema].background};
   padding: 8px;
-  border: 1px solid ${Primary};
+  border: 1px solid ${props => colorSchemas[props.colorSchema].borderColor};
+  border-radius: ${props => shapes[props.shape]};
   outline: none;
   cursor: pointer;
   transition: .3s;
@@ -40,11 +54,21 @@ export const StyledButton = styled.button`
   }
 
   .loader {
+    position: ${props => props.icon ? 'absolute' : 'static'};
     opacity: ${props => props.loading ? '1' : '0'};
     visibility: ${props => props.loading ? 'visible' : 'hidden'};
-    margin-right: ${props => props.loading ? '10px' : '-16px'};
+    ${props => !props.icon && `margin-right: ${props.loading ? '10px' : '-16px'};`}
     display: inline-block;
-    transition: all .3s cubic-bezier(.645,.045,.355,1);
+    ${props => !props.icon && `transition: all .3s cubic-bezier(.645,.045,.355,1);`}
+  }
+
+  .icon-wrapper {
+    transform: translateY(-2px);
+  }
+
+  .icon-wrapper span {
+    font-size: 22px;
+    color: ${props => props.loading ? 'transparent' : Primary};
   }
 
   span {

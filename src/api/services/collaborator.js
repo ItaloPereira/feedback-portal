@@ -5,12 +5,16 @@ class CollaboratorService extends API {
     return this.get('/collaborator');
   }
 
-  async getCollaborator(id) {
-    return this.get(`/collaborator/${id}`);
+  async getCollaborator(collaboratorId) {
+    return this.get(`/collaborator/${collaboratorId}`);
   }
 
-  async getCollaboratorFeedbacks(id) {
-    return this.get(`/collaborator/${id}/feedback`);
+  async getCollaboratorFeedbacks(collaboratorId) {
+    return this.get(`/collaborator/${collaboratorId}/feedback`);
+  }
+
+  async like(collaboratorId, feedbackId, data) {
+    return this.put(`/collaborator/${collaboratorId}/feedback/${feedbackId}`, data);
   }
 }
 

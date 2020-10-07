@@ -7,7 +7,7 @@ import { getErrorMessageByRequest } from '@modules/errors';
 
 import Loader from '@components/atoms/Loader';
 import Avatar from '@components/atoms/Avatar';
-import FeedbackList from '@components/organisms/FeedbackList';
+import FeedbackList from '@components/templates/FeedbackList';
 import Page from '@components/templates/Page';
 
 import {
@@ -99,7 +99,7 @@ const Detail = () => {
                 <Loader size="large" />
               </LoaderWrapper>
             ) : (
-              <FeedbackList items={feedbacks} />
+              <FeedbackList items={feedbacks} collaboratorId={id} />
             )}
           </>
         )}
