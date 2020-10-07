@@ -32,7 +32,9 @@ export const LikesCount = styled.span`
 export const LikeWrapper = styled.div`
   margin-left: 8px;
 
-  .icon-wrapper span {
-    color: ${({ active }) => active ? Blue : Primary}
-  }
+  ${({ active }) => active && `
+    .icon-wrapper span {
+      color: ${Blue}
+    }
+  `}
 `;
